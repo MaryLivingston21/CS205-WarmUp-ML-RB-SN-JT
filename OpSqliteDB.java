@@ -8,13 +8,26 @@ public class OpSqliteDB {
         Connection c = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c=DriverManager.getConnection("jdbc:sqlite:Films.db");
+            c=DriverManager.getConnection("jdbc:sqlite:Movies.db");
             
             System.out.println("Success!");
             Statement statement = c.createStatement();
             
-            ResultSet rs = statement.executeQuery("select title from film");
+            System.out.println("10 record from directors");
+            ResultSet rs = statement.executeQuery("select * from titles limit 10");
             while (rs.next()) {
+               String col1 = rs.getString("title");
+               String col2 = rs.getString("type");
+               String col3 = rs.getString("director");
+               String col7 = rs.getString("rating");
+               String col8 = rs.getString("duration");
+               System.out.println(  col1 + " " + col2 + " " + col3 +
+            		  " " + col7 + " " + col8);
+            }
+
+            System.out.println("\n 10 titles from directors");
+            ResultSet rs1 = statement.executeQuery("select title from directors limit 10");
+            while (rs1.next()) {
                String col1 = rs.getString("title");
                System.out.println("title = " + col1);
             }
