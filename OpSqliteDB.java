@@ -1,40 +1,84 @@
 import java.sql.*;
 import java.io.*;
 import java.util.Scanner;
-public class OpSqliteDB {
+public class OpSqliteDB 
+{
     
-   public static void main(String args[]) {
-        // load the sqlite-JDBC driver using the current class loader
-        Connection c = null;
-        try {
-            Class.forName("org.sqlite.JDBC");
-            c=DriverManager.getConnection("jdbc:sqlite:Movies.db");
-            
-            System.out.println("Success!");
-            Statement statement = c.createStatement();
-            
-            System.out.println("10 record from directors");
-            ResultSet rs = statement.executeQuery("select * from titles limit 10");
-            while (rs.next()) {
-               String col1 = rs.getString("title");
-               String col2 = rs.getString("type");
-               String col3 = rs.getString("director");
-               String col7 = rs.getString("rating");
-               String col8 = rs.getString("duration");
-               System.out.println(  col1 + " " + col2 + " " + col3 +
-            		  " " + col7 + " " + col8);
-            }
+   public static void main(String args[]) 
+   {
 
-            System.out.println("\n 10 titles from directors");
-            ResultSet rs1 = statement.executeQuery("select title from directors limit 10");
-            while (rs1.next()) {
-               String col1 = rs.getString("title");
-               System.out.println("title = " + col1);
-            }
-        }  catch (SQLException e) {
-            System.err.println(e.getMessage());
+        // User prompt
+        
+        
+        // Make Conection 
+        Connection c = null;
+        c = connect(c);
+        
+        //create Table
+        createTable(c);    
+            
+
+    }
+    
+    public static Connection connect(Connection c)
+    {
+        // connect the sqlite-JDBC driver using the current class loader
+        try 
+        {   
+           Class.forName("org.sqlite.JDBC");
+           c=DriverManager.getConnection("jdbc:sqlite:Test.db");                                    
+                   
         } catch(Exception e) {
+        
             e.printStackTrace();
         } 
+        return c;
+    }
+    
+    public static void createTable(Connection c) 
+    {
+        try 
+        {               
+            Statement statement = c.createStatement(); 
+
+            // create tables
+            statement.executeUpdate("create table directors( " +
+               "show_id	integer, " +
+               "type text, " +	
+               "title primary key," +
+               "director, " +	
+               "cast	text, " +
+               "country	text, " +
+               "release_year integer, " +
+               "rating text, " +
+               "duration text); ");
+               
+            statement.executeUpdate("create table titles( " +
+               "show_id	integer, " +
+               "type text, " +	
+               "title primary key, " +
+               "director text, " +	
+               "date_added text, " +	
+               "duration text, " +	
+               "description text ); ");
+            
+            // TODO insert tuples from csv to tabless
+            statement.executeUpdate("insert into directors values(81155784, " +	
+            "'Movie',	'Watchman',	'A. L. Vijay',"	+
+            "'G.V. Prakash Kumar, Samyuktha Hegde, Suman, Raj Arjun, Yogi Babu, Munishkanth'," +
+            "'India',	2019,	'TV-14',	'93 min');");
+            
+            
+            // query from tables  
+            
+        } catch (SQLException e) {
+        
+            System.err.println(e.getMessage());
+        
+        } catch(Exception e) {
+        
+            e.printStackTrace();
+        } 
+    
     }
 }    
