@@ -6,7 +6,7 @@ public class OpSqliteDB
     
    public static void main(String args[]) 
    {
-
+        Boolean load = true;
         // User prompt
         
         
@@ -15,8 +15,10 @@ public class OpSqliteDB
         c = connect(c);
         
         //create Table
-        createTable(c);    
-            
+        if (load)
+        {
+           createTable(c);    
+        }   
 
     }
     
@@ -70,6 +72,8 @@ public class OpSqliteDB
             
             
             // query from tables  
+            
+                                    
             
         } catch (SQLException e) {
         
