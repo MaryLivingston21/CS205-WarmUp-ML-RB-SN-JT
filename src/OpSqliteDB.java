@@ -6,7 +6,7 @@ public class OpSqliteDB
     
    public static void main(String args[]) 
    {
-        Boolean load = false;
+        Boolean load = true;
         // User prompt
         
         
@@ -65,6 +65,14 @@ public class OpSqliteDB
                "description text ); ");
             
             // TODO insert tuples from csv to tabless
+            Scanner scanner = new Scanner(new File("../netflix_directors.csv"));
+            scanner.useDelimiter(",");
+            while(scanner.hasNext())
+            {               
+               System.out.print(scanner.next()+"|");               
+            }
+            scanner.close();            
+                                   
             statement.executeUpdate("insert into directors values(81155784, " +	
             "'Movie',	'Watchman',	'A. L. Vijay',"	+
             "'G.V. Prakash Kumar, Samyuktha Hegde, Suman, Raj Arjun, Yogi Babu, Munishkanth'," +
@@ -72,7 +80,7 @@ public class OpSqliteDB
             
             
             // query from tables  
-            
+            //statement.executeQuery()
                                     
             
         } catch (SQLException e) {
@@ -85,4 +93,5 @@ public class OpSqliteDB
         } 
     
     }
+    
 } 
