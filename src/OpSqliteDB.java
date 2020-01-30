@@ -19,6 +19,8 @@ public class OpSqliteDB
         {
            createTable(c);    
         }   
+        
+        dropTables(c);
 
     }
     
@@ -77,12 +79,10 @@ public class OpSqliteDB
             "'Movie',	'Watchman',	'A. L. Vijay',"	+
             "'G.V. Prakash Kumar, Samyuktha Hegde, Suman, Raj Arjun, Yogi Babu, Munishkanth'," +
             "'India',	2019,	'TV-14',	'93 min');");
-            
-            
+                        
             // query from tables  
             //statement.executeQuery()
-                                    
-            
+
         } catch (SQLException e) {
         
             System.err.println(e.getMessage());
@@ -94,4 +94,18 @@ public class OpSqliteDB
     
     }
     
+    public static void dropTables(Connection c)
+   {     
+      try{           
+         Statement statement = c.createStatement();                      
+         statement.executeUpdate("drop table if exists directors;");
+         statement.executeUpdate("drop table if exists titles;");
+         
+      } catch (SQLException e) {        
+         System.err.println(e.getMessage());
+     
+      } catch(Exception e) {     
+          e.printStackTrace();
+      }  
+   }             
 } 
