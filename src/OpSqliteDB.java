@@ -22,6 +22,10 @@ public class OpSqliteDB
         // Query from table
         // query(c);
 
+        
+        dropTables(c);
+
+
     }
     
     public static Connection connect(Connection c)
@@ -50,10 +54,12 @@ public class OpSqliteDB
                                    
         } catch(Exception e) {        
            e.printStackTrace();
+
         } 
     
     }
     
+
     public static void query(Connection c) 
     {
        try
@@ -75,4 +81,20 @@ public class OpSqliteDB
            
        } 
     }
+
+    public static void dropTables(Connection c)
+    {     
+      try{           
+         Statement statement = c.createStatement();                      
+         statement.executeUpdate("drop table if exists directors;");
+         statement.executeUpdate("drop table if exists titles;");
+         
+      } catch (SQLException e) {        
+         System.err.println(e.getMessage());
+     
+      } catch(Exception e) {     
+          e.printStackTrace();
+      }  
+    }             
+
 } 
