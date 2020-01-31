@@ -41,7 +41,7 @@ public class UserInterface {
                         }
                         // if value == category
                         for (Category cat : Category.values()) {
-                            // check if ==
+                            //TODO:check if ==
                         }
                         System.out.println("Which category do you know? (input 'o' to see options)");
                         String categoryKnown = scanner.next();
@@ -53,7 +53,7 @@ public class UserInterface {
                         }
                         // if value == category
                         for (Category cat : Category.values()) {
-                            // check if ==
+                            //TODO: check if ==
                         }
                         System.out.println("What's it's value?");
                         String valueKnown = scanner.next();
