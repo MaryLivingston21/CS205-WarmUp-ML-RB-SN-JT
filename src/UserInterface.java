@@ -10,7 +10,7 @@ public class UserInterface {
         String name = scanner.next();
         System.out.println("Welcome " + name);
 
-        char choice = 'h';
+        char choice = ' ';
         boolean loadData = false;
         while (choice != 'e') {
             System.out.print("Menu: help (h) load data (l) get data (g) exit (e)");
@@ -30,11 +30,18 @@ public class UserInterface {
                     }
                     break;
                 case 'e':
-                    System.out.println("exiting program");
+                    System.out.println("exiting the program");
                     break;
                 case 'g':
                     if (loadData) {
-                        System.out.println("get data");
+                        System.out.println("What are you looking for?");
+                        System.out.println("Show_id, Title, Director, Date_Added, Rating, Duration, Description");
+                        System.out.println("Cast, Country, Release_year");
+                        String valueSearchingFor = scanner.next();
+                        System.out.println("Which category do you know?");
+                        String categoryKnown = scanner.next();
+                        System.out.println("What's it's value?");
+                        String valueKnown = scanner.next();
                     } else {
                         System.out.println("please load the data");
                     }
@@ -44,6 +51,9 @@ public class UserInterface {
                     break;
             }
         }
+    }
 
+    public enum Category {
+        SHOW_ID, TITLE, DIRECTOR, DATE_ADDED, RATING, DURATION, DESCRIPTION, CAST, COUNTRY, RELEASE_YEAR
     }
 }
