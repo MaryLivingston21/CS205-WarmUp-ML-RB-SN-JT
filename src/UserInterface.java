@@ -10,7 +10,7 @@ public class UserInterface {
         System.out.println("Welcome " + name);
 
         char choice = ' ';
-        boolean loadData = false;
+        boolean loadData = true;
         while (choice != 'e') {
             System.out.print("Menu: help (h) load data (l) get data (g) exit (e)");
             choice = scanner.next().charAt(0);
@@ -31,12 +31,30 @@ public class UserInterface {
                     break;
                 case 'g':
                     if (loadData) {
-                        System.out.println("What are you looking for?");
-                        System.out.println("Show_id, Title, Director, Date_Added, Rating, Duration, Description");
-                        System.out.println("Cast, Country, Release_year");
+                        System.out.println("What are you looking for? (input 'o' to see options)");
                         String valueSearchingFor = scanner.next();
-                        System.out.println("Which category do you know?");
+                        if (valueSearchingFor == "o"){
+                            //print all categories
+                            for (Category cat : Category.values()) {
+                                System.out.println(cat);
+                            }
+                        }
+                        // if value == category
+                        for (Category cat : Category.values()) {
+                            // check if ==
+                        }
+                        System.out.println("Which category do you know? (input 'o' to see options)");
                         String categoryKnown = scanner.next();
+                        if (categoryKnown == "o"){
+                            //print all categories
+                            for (Category cat : Category.values()) {
+                                System.out.println(cat);
+                            }
+                        }
+                        // if value == category
+                        for (Category cat : Category.values()) {
+                            // check if ==
+                        }
                         System.out.println("What's it's value?");
                         String valueKnown = scanner.next();
                     } else {
