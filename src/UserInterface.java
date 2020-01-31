@@ -25,6 +25,9 @@ public class UserInterface {
                 case 'g':
                     System.out.println("get data");
                     break;
+                default:
+                    System.out.println("please pick valid option");
+                    break;
             }
         }
 
