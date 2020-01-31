@@ -49,15 +49,11 @@ public class UserInterface {
                         System.out.println("Which category do you know? (input 'o' to see options)");
                         String categoryKnown = scanner.next();
                         if (categoryKnown == "o"){
-                            //print all categories
-                            for (Category cat : Category.values()) {
-                                System.out.println(cat);
-                            }
+                            System.out.println("SHOW_ID");
+                            System.out.println("TITLE");
+                            System.out.println("DIRECTOR");
                         }
-                        // if value == category
-                        for (Category cat : Category.values()) {
-                            //TODO: check if ==
-                        }
+                        //TODO: ERROR checking
                         System.out.println("What's it's value?");
                         String valueKnown = scanner.next();
                     } else {
@@ -74,4 +70,5 @@ public class UserInterface {
     public enum Category {
         SHOW_ID, TITLE, DIRECTOR, DATE_ADDED, RATING, DURATION, DESCRIPTION, CAST, COUNTRY, RELEASE_YEAR
     }
+
 }
