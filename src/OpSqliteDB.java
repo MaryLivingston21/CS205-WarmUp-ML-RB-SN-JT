@@ -3,9 +3,11 @@ import java.io.*;
 import java.util.Scanner;
 public class OpSqliteDB 
 {
-    
+
+   /* 
    public static void main(String args[]) 
    {
+         
         Boolean load = true;
         // User prompt
                         
@@ -20,13 +22,11 @@ public class OpSqliteDB
         c = connect(c);
         
         // Query from table
-        // query(c);
-
-        
-        dropTables(c);
-
+        // query(c);        
 
     }
+    
+    */
     
     public static Connection connect(Connection c)
     {
@@ -48,7 +48,7 @@ public class OpSqliteDB
         try 
         {                 
            Runtime rt = Runtime.getRuntime();
-           Process pr = rt.exec("python load.py");               
+           Process pr = rt.exec("python3 load.py");               
            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));                
            input.close();                                                                                                       
                                    
