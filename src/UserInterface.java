@@ -49,4 +49,8 @@ public class UserInterface {
             }
         }
     }
+
+    public enum Category {
+        SHOW_ID, TITLE, DIRECTOR, DATE_ADDED, RATING, DURATION, DESCRIPTION, CAST, COUNTRY, RELEASE_YEAR
+    }
 }
