@@ -12,7 +12,7 @@ public class UserInterface {
         OpSqliteDB jdbc = new OpSqliteDB();     // new Object jdbc
         
         char choice = ' ';
-        boolean loadData = false;
+        boolean loadData = true;  //TODO: change this back to run eventually
         while (choice != 'e') {
             System.out.print("Menu: help (h) load data (l) get data (g) exit (e)");
             choice = scanner.next().charAt(0);
@@ -34,12 +34,26 @@ public class UserInterface {
                     break;
                 case 'g':
                     if (loadData) {
-                        System.out.println("What are you looking for?");
-                        System.out.println("Show_id, Title, Director, Date_Added, Rating, Duration, Description");
-                        System.out.println("Cast, Country, Release_year");
+                        System.out.println("What are you looking for? (input 'o' to see options)");
                         String valueSearchingFor = scanner.next();
-                        System.out.println("Which category do you know?");
+                        if (valueSearchingFor == "o"){
+                            //print all categories
+                            for (Category cat : Category.values()) {
+                                System.out.println(cat);
+                            }
+                        }
+                        // if value == category
+                        for (Category cat : Category.values()) {
+                            //TODO:check if ==
+                        }
+                        System.out.println("Which category do you know? (input 'o' to see options)");
                         String categoryKnown = scanner.next();
+                        if (categoryKnown == "o"){
+                            System.out.println("SHOW_ID");
+                            System.out.println("TITLE");
+                            System.out.println("DIRECTOR");
+                        }
+                        //TODO: ERROR checking
                         System.out.println("What's it's value?");
                         String valueKnown = scanner.next();
                         
@@ -62,4 +76,5 @@ public class UserInterface {
     public enum Category {
         SHOW_ID, TITLE, DIRECTOR, DATE_ADDED, RATING, DURATION, DESCRIPTION, CAST, COUNTRY, RELEASE_YEAR
     }
+
 }
