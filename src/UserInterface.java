@@ -9,7 +9,8 @@ public class UserInterface {
         System.out.print("Welcome to our program! \nEnter your name:  ");
         String name = scanner.next();
         System.out.println("Welcome " + name);
-
+        OpSqliteDB jdbc = new OpSqliteDB();     // new Object jdbc
+        
         char choice = ' ';
         boolean loadData = true;  //TODO: change this back to run eventually
         while (choice != 'e') {
@@ -23,8 +24,7 @@ public class UserInterface {
                     if (!loadData){
                         System.out.println("call load data function here");
                         loadData = true;
-                        OpSqliteDB jdbc = new OpSqliteDB();
-                        jdbc.createTable();       
+                        jdbc.createTables();  // load csv files, import data, and create tables to Film.db file                       
                     } else {
                         System.out.println("data is already loaded");
                     }
@@ -56,6 +56,12 @@ public class UserInterface {
                         //TODO: ERROR checking
                         System.out.println("What's it's value?");
                         String valueKnown = scanner.next();
+                        
+                        // make jdbc connection
+                        jdbc.connect();
+                        
+                        // call query function 
+                        jdbc.query();
                     } else {
                         System.out.println("please load the data");
                     }
