@@ -3,32 +3,15 @@ import java.io.*;
 import java.util.Scanner;
 public class OpSqliteDB 
 {
-
-   /* 
-   public static void main(String args[]) 
-   {
-         
-        Boolean load = true;
-        // User prompt
-                        
-        // create Table
-        if (load)
-        {
-           createTable();    
-        }   
-
-        // Make Conection 
-        Connection c = null;
-        c = connect(c);
-        
-        // Query from table
-        // query(c);        
-
+    public static Connection c;
+    // Default Constructor
+    public void OpSqliteDB()
+    {
+      // Make Conection 
+      Connection c = null;
     }
-    
-    */
-    
-    public static Connection connect(Connection c)
+          
+    public static Connection connect()
     {
         // connect the sqlite-JDBC driver using the current class loader
         try 
@@ -43,7 +26,7 @@ public class OpSqliteDB
         return c;
     }
     
-    public static void createTable() 
+    public static void createTables() 
     {
         try 
         {                 
@@ -59,8 +42,9 @@ public class OpSqliteDB
     
     }
     
-
-    public static void query(Connection c) 
+    // TODO modify query function takes parameters as three parses in
+    // TODO Make quries    
+    public static void query() 
     {
        try
        {       
@@ -82,7 +66,7 @@ public class OpSqliteDB
        } 
     }
 
-    public static void dropTables(Connection c)
+    public static void dropTables()
     {     
       try{           
          Statement statement = c.createStatement();                      
@@ -96,5 +80,4 @@ public class OpSqliteDB
           e.printStackTrace();
       }  
     }             
-
 } 
