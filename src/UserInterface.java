@@ -10,7 +10,7 @@ public class UserInterface {
         System.out.println("Welcome " + name);
 
         char choice = ' ';
-        boolean loadData = true;
+        boolean loadData = true;  //TODO: change this back to run
         while (choice != 'e') {
             System.out.print("Menu: help (h) load data (l) get data (g) exit (e)");
             choice = scanner.next().charAt(0);
