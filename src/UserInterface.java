@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class UserInterface {
     public static void main(String[] args) {
+ 
 
         // Get User's Name -> testing out scanner
         Scanner scanner = new Scanner(System.in);
@@ -22,6 +23,8 @@ public class UserInterface {
                     if (!loadData){
                         System.out.println("call load data function here");
                         loadData = true;
+                        OpSqliteDB jdbc = new OpSqliteDB();
+                        jdbc.createTable();       
                     } else {
                         System.out.println("data is already loaded");
                     }
