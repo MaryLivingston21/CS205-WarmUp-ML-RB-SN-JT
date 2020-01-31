@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class UserInterface {
     public static void main(String[] args) {
 
+        // Get User's Name -> testing out scanner
         Scanner scanner = new Scanner(System.in);
         System.out.print("Welcome to our program! \nEnter your name:  ");
         String name = scanner.next();
@@ -20,6 +21,7 @@ public class UserInterface {
                 case 'l':
                     if (!loadData){
                         System.out.println("call load data function here");
+                        loadData = true;
                     } else {
                         System.out.println("data is already loaded");
                     }
