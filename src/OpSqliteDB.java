@@ -44,15 +44,28 @@ public class OpSqliteDB
     
     // TODO modify query function takes parameters as three parses in
     // TODO Make quries    
-    public static void query() 
+    // 1st be attribute, hwta user whats(output)
+    // 2nd be user input type
+    // 3rd detail of input
+    
+    public static void query(String output_t, String input, String detail) 
     {
        try
        {       
            Statement statement = c.createStatement(); 
-           ResultSet rs = statement.executeQuery("select * from directors limit 10");
+           String v2 = "";
+           //String v3 = " limit 10"
+           //String query = "select * from directors limit 10";
+           switch (output_t) {
+           case "date_added": v2 = "titles"; break;
+           
+           }
+           //try to get detail's value in single quotes
+           String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
+           ResultSet rs = statement.executeQuery(query);
            while (rs.next()) {
-              String col1 = rs.getString("title");
-              System.out.println("title = " + col1);
+              String col1 = rs.getString(output_t);
+              System.out.println(output_t + " " + col1);
            }
         
        } catch (SQLException e) {

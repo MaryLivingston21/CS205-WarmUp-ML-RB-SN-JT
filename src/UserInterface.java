@@ -62,7 +62,7 @@ public class UserInterface {
                         jdbc.connect();
                         
                         // call query function 
-                        jdbc.query();
+                        jdbc.query("date_added", "title", "After");
                     } else {
                         System.out.println("please load the data");
                     }
