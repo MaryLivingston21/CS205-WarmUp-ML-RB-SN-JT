@@ -53,14 +53,19 @@ public class OpSqliteDB
        try
        {       
            Statement statement = c.createStatement(); 
-           String v2 = "";
-           //String v3 = " limit 10"
-           //String query = "select * from directors limit 10";
-           switch (output_t) {
-           case "date_added": v2 = "titles"; break;
+           String v2 = "directors"; // default table
            
+           switch (output_t) {
+           // 2 cases for titles only
+           case "date_added": v2 = "titles"; break;
+           case "description": v2 = "titles"; break;
+           // 3 cases for directors only
+           case "cast": v2 = "directors"; break;
+           case "country": v2 = "directors"; break;
+           case "release_year": v2 = "directors"; break;
            }
-           //try to get detail's value in single quotes
+           
+           //this formating for inputs is working 
            String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
            ResultSet rs = statement.executeQuery(query);
            while (rs.next()) {
