@@ -62,7 +62,12 @@ public class UserInterface {
                         jdbc.connect();
                         
                         // call query function 
-                        jdbc.query("date_added", "title", "After");
+                        jdbc.query("rating", "title", "After");
+                        jdbc.query("duration", "title", "After");
+                        jdbc.query("director", "title", "A Christmas Prince: The Royal Wedding");
+                        jdbc.query("release_year", "director", "A.L Vijay");
+                        jdbc.query("description", "director", "Jorge M. Fontana");
+                        
                     } else {
                         System.out.println("please load the data");
                     }
