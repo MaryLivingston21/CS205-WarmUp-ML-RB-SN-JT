@@ -64,7 +64,8 @@ public class OpSqliteDB
            case "country": v2 = "directors"; break;
            case "release_year": v2 = "directors"; break;
            }
-           
+          
+          
            //this formating for inputs is working 
            String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
            ResultSet rs = statement.executeQuery(query);

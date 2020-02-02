@@ -67,6 +67,7 @@ public class UserInterface {
                         jdbc.query("director", "title", "A Christmas Prince: The Royal Wedding");
                         jdbc.query("release_year", "director", "A.L Vijay");
                         jdbc.query("description", "director", "Jorge M. Fontana");
+                        
                     } else {
                         System.out.println("please load the data");
                     }
