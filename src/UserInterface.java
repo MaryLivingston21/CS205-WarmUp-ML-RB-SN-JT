@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class UserInterface {
@@ -70,10 +69,10 @@ public class UserInterface {
                         jdbc.query("rating", "title", "After");
                         jdbc.query("duration", "title", "After");
                         jdbc.query("director", "title", "A Christmas Prince: The Royal Wedding");
-                        jdbc.query("release_year", "director", "A.L Vijay");
+                        jdbc.query("release_year", "director", "A. L. Vijay");
                         jdbc.query("description", "director", "Jorge M. Fontana");
                         // queries for same value 
-                        // jdbc.query("director", "title", "Jorge M. Fontana");
+                        jdbc.query("title", "director", "Jorge M. Fontana");
                         
                     } else {
                         System.out.println("please load the data");

@@ -76,6 +76,7 @@ public class OpSqliteDB
           
            //this formating for inputs is working 
            String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
+           // System.out.println(query); testing
            ResultSet rs = statement.executeQuery(query);
            while (rs.next()) {
               String col1 = rs.getString(output_t);
