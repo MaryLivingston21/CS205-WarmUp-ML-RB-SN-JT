@@ -1,4 +1,4 @@
-netflix_titles,title,director,cast,country,release_year,rating,duration
+netflix_titles,title,director,actor,country,release_year,rating,duration
 81155784,Watchman,A. L. Vijay,"G.V. Prakash Kumar, Samyuktha Hegde, Suman, Raj Arjun, Yogi Babu, Munishkanth",India,2019,TV-14,93 min
 81075235,Sarkar,A.R. Murugadoss,"Vijay, Varalakshmi Sarathkumar, Keerthi Suresh, Radha Ravi, Pala Karuppaiah, Yogi Babu",India,2018,TV-MA,162 min
 81074367,Jaoon Kahan Bata Ae Dil,Aadish Keluskar,"Khushboo Upadhyay, Rohit Kokate, Himanshu Kohli, Mohammed Shakir",India,2018,TV-MA,107 min
@@ -129,12 +129,12 @@ netflix_titles,title,director,cast,country,release_year,rating,duration
 81092909,"Oh, Ramona!",Cristina Jacob,"Bogdan Iancu, Aggy K. Adams, Holly Horne, Basil Eidenbenz, Melanie Ebanks, Leonardo Boudreau, Andromeda Godfrey",Romania,2019,TV-MA,109 min
 81024557,Thriller,Dallas Jackson,"Jessica Allain, Luke Tennie, Tequan Richmond, Paige Hurd, Chelsea Rendon, Mitchell Edwards, Pepi Sonuga, Jason Woods, Maestro Harrell, RZA, Mykelti Williamson",United States,2018,TV-MA,87 min
 81094666,Killer Cove,Dami??n Romay,"Haley Webb, Donny Boaz, Cathy Baron, Jason Alan Smith, Dennis Staroselsky, Owen Miller, Shawn Fitzgibbon",United States,2018,TV-14,87 min
-80230507,Angela's Christmas,Damien O?�?Connor,"Lucy O'Connell, Ruth Negga, Brendan Mullins, Malachy McCourt, Vivian Drew, Anya O'Connor, Janet Moran, Brian Gleeson, Pat Kinevane","Ireland, Canada",2018,TV-G,30 min
+80230507,Angela's Christmas,Damien O?????Connor,"Lucy O'Connell, Ruth Negga, Brendan Mullins, Malachy McCourt, Vivian Drew, Anya O'Connor, Janet Moran, Brian Gleeson, Pat Kinevane","Ireland, Canada",2018,TV-G,30 min
 80199689,Velvet Buzzsaw,Dan Gilroy,"Jake Gyllenhaal, Rene Russo, Zawe Ashton, Toni Collette, John Malkovich, Natalia Dyer, Daveed Diggs, Tom Sturridge",United States,2019,R,113 min
 80199806,Gun City,Dani de la Torre,"Luis Tosar, Michelle Jenner, Vicente Romero, Manolo Solo, Paco Tous, Adriana Torrebejano, Pep Tosar, Jaime Lorente, Ernesto Alterio, Fernando Cayo","Spain, France",2018,TV-MA,126 min
 80232989,The Warning,Daniel Calparsoro,"Ra??l Ar??valo, Aura Garrido, Hugo Arbues, Bel??n Cuesta, Antonio Dechent, Aitor Luna, Sergio Mur",Spain,2018,TV-MA,93 min
 80177400,Cam,Daniel Goldhaber,"Madeline Brewer, Patch Darragh, Melora Walters, Devin Druid, Imani Hakim, Michael Dempsey, Flora Diaz, Samantha Robinson, Jessica Parker Kennedy, Quei Tann",United States,2018,TV-MA,95 min
-81003981,"Frankenstein?�?s Monster?�?s Monster, Frankenstein",Daniel Gray Longino,"David Harbour, Alex Ozerov, Kate Berlant, Mary Woronov, Alfred Molina, Heather Lawless, Michael Lerner, Marion Van Cuyck, Bridey Elliott, O-Lan Jones, Lidia Porto, Graham Wagner, Randolph Thompson",United States,2019,TV-14,32 min
+81003981,"Frankenstein?????s Monster?????s Monster, Frankenstein",Daniel Gray Longino,"David Harbour, Alex Ozerov, Kate Berlant, Mary Woronov, Alfred Molina, Heather Lawless, Michael Lerner, Marion Van Cuyck, Bridey Elliott, O-Lan Jones, Lidia Porto, Graham Wagner, Randolph Thompson",United States,2019,TV-14,32 min
 81121186,NOVA: Prediction by the Numbers,Daniel McCabe,Jay O. Sanders,United States,2018,TV-G,53 min
 80988834,Yucat??n,Daniel Monz??n,"Luis Tosar, Rodrigo de la Serna, Joan Pera, Stephanie Cayo, Gloria Mu??oz, Adri??n N????ez, Alicia Fern??ndez, Jorge As??n, Agust??n Jim??nez, Lupe Carti?? Roda, Txell Aixendri, Xavi Lite, Alejandro Vera, Jo??o Lagarto",Spain,2018,TV-MA,130 min
 80990336,Seventeen,Daniel S??nchez Ar??valo,"Biel Montoro, Nacho S??nchez, Lola Cord??n, Itsaso Arana, Chani Mart??n, I??igo Aranburu, Kandido Uranga, Javier Cifri??n, Mamen Duch, Carolina Clemente, Jorge Cabrera, Daniel Fuster, Edgar Costas, Patxi Santamar??a",Spain,2019,TV-MA,100 min
@@ -460,7 +460,7 @@ netflix_titles,title,director,cast,country,release_year,rating,duration
 81065786,Used Goods,Mohamed Hamdy,"Mohamed Ragab, Ayten Amer, Hassan Abdulfattah",Egypt,2018,TV-MA,95 min
 81026188,The Knight Before Christmas,Monika Mitchell,"Vanessa Hudgens, Josh Whitehouse, Emmanuelle Chriqui, Harry Jarvis, Mimi Gianopulos, Ella Kenion, Jean-Michel Le Gal, Arnold Pinnock",United States,2019,TV-14,93 min
 81011955,Paradise Lost,Monique Gardenberg,"J??lio Andrade, Lee Taylor, Hermila Guedes, Julia Konrad, Erasmo Carlos, Marjorie Estiano, Seu Jorge, Jaloo, Felipe Abib, Humberto Carr??o, Malu Galli",Brazil,2018,TV-MA,111 min
-80124722,They?�?ll Love Me When I?�?m Dead,Morgan Neville,"Orson Welles, Alan Cumming",United States,2018,TV-MA,98 min
+80124722,They?????ll Love Me When I?????m Dead,Morgan Neville,"Orson Welles, Alan Cumming",United States,2018,TV-MA,98 min
 81172754,Crazy people,Moses Inwang,"Ramsey Nouah, Chigul, Sola Sobowale, Ireti Doyle, Ben Touitou, Francis Onwochei, Ememobong Nkana, Emem Inwang, Patrick Onyeke",Nigeria,2018,TV-14,107 min
 81147910,Mayday Life,Muh Chen,"Mayday, Huang Bo, Tony Leung Ka-fai","China, Taiwan",2019,TV-PG,120 min
 80160994,"To Each, Her Own",Myriam Aziza,"Sarah Stern, Jean-Christophe Folly, Julia Piaton, Ari?? Elmaleh, Cl??mentine Poidatz, St??phane Debac, Richard Berry, Catherine Jacob",France,2018,TV-MA,95 min
@@ -471,7 +471,7 @@ netflix_titles,title,director,cast,country,release_year,rating,duration
 81058497,Seth Meyers: Lobby Baby,Neal Brennan,Seth Meyers,United States,2019,TV-MA,61 min
 80243408,Aiyaary,Neeraj Pandey,"Sidharth Malhotra, Manoj Bajpayee, Rakul Preet Singh, Pooja Chopra, Adil Hussain, Kumud Mishra, Naseeruddin Shah, Anupam Kher, Vikram Gokhale, Juhi Babbar",India,2018,TV-14,158 min
 81017593,Robin Hood: The Rebellion,Nicholas Winter,"Ben Freeman, James Oliver Wheatley, Marie Everett, Jamie Kenna, James Groom, James G. Nunn, Martyn Ford, Gareth David-Lloyd, Brian Blessed, Kristian Nairn",United Kingdom,2018,TV-14,92 min
-81002876,Nikki Glaser: Bangin?�?,Nicholaus Goossen,Nikki Glaser,United States,2019,TV-MA,64 min
+81002876,Nikki Glaser: Bangin?????,Nicholaus Goossen,Nikki Glaser,United States,2019,TV-MA,64 min
 81088282,American Masters: Ted Williams,Nick Davis,Ted Williams,United States,2018,TV-MA,55 min
 81156627,Clarence Clemons: Who Do I Think I Am?,Nick Mead,Clarence Clemons,United States,2019,TV-MA,88 min
 80241666,No Estoy Loca,Nicol??s L??pez,"Paz Bascu????n, Marcial Tagle, Antonia Zegers, Carolina Paulsen, Gabriela Hernandez, Fernanda Urrejola, Luis Pablo Rom??n, Loreto Aravena, Ariel Levy, Ignacia Allamand, Ram??n Llao",Chile,2018,TV-MA,116 min
@@ -495,7 +495,7 @@ netflix_titles,title,director,cast,country,release_year,rating,duration
 80117458,First Match,Olivia Newman,"Elvire Emanuelle, Yahya Abdul-Mateen II, Colman Domingo, Jharrel Jerome, Kim Ramirez, Jared Kemp, Allen Maldonado",United States,2018,TV-MA,103 min
 80198508,Girls With Balls,Olivier Afonso,"Victor Artus Solaro, Manon Azem, Louise Blach??re, Tiphaine Daviot, Margot Dufrene, Anne-Solenne Hatte, Camille Razat, Dany Verissimo-Petit, Denis Lavant, Aur??lien Cotentin, Mathieu Mad??nian, Thomas Vandenberghe","France, Belgium",2019,TV-MA,77 min
 81172848,Moms at War,Omoni Oboli,"Omoni Oboli, Funke Akindele, Yul Edochie, Abayomi Alvin, Adebukola Oladipupo, Sharon Ooja, Eucharia-Anunobi Ekwu, Harriet Akinola, Michelle Dede",Nigeria,2018,TV-14,92 min
-81018240,?�??�?Kuch Bheege Alfaaz,Onir,"Geetanjali Thapa, Zain Khan Durrani, Shray Rai Tiwari, Mona Ambegaonkar, Chandreyee Ghosh, Barun Chanda, Saheb Bhattacharjee, Shefali Chauhan",India,2018,TV-14,110 min
+81018240,??????????Kuch Bheege Alfaaz,Onir,"Geetanjali Thapa, Zain Khan Durrani, Shray Rai Tiwari, Mona Ambegaonkar, Chandreyee Ghosh, Barun Chanda, Saheb Bhattacharjee, Shefali Chauhan",India,2018,TV-14,110 min
 81158574,Brother in Love,Onur Bilgetay,"Cem Gelino??lu, Melis Babadag, Ege K??kenli, M??fit Kayacan, Lale Ba??ar, Ali Erkazan, ??zlem ??akar, Selen Doma??, Ferdi Sancar, G??ven Hokna",Turkey,2019,TV-14,110 min
 80991158,Mirage,Oriol Paulo,"Adriana Ugarte, Chino Dar??n, Javier Guti??rrez, ??lvaro Morte, Nora Navas, Miquel Fern??ndez, Clara Segura, Mima Riera, Aina Clotet, Albert P??rez, Julio Bohigas-Couto, Bel??n Rueda",Spain,2018,TV-MA,129 min
 80085566,The Other Side of the Wind,Orson Welles,"John Huston, Oja Kodar, Peter Bogdanovich, Susan Strasberg, Robert Random, Lilli Palmer, Norman Foster, Edmond O'Brien, Mercedes McCambridge, Cameron Mitchell, Paul Stewart","France, Iran, United States",2018,R,122 min
@@ -655,7 +655,7 @@ netflix_titles,title,director,cast,country,release_year,rating,duration
 81157385,Saaho,Sujeeth,"Prabhas, Shraddha Kapoor, Jackie Shroff, Chunky Pandey, Neil Nitin Mukesh, Arun Vijay, Vennela Kishore, Murli Sharma, Lal, Prakash Belawadi, Mahesh Manjrekar, Tinnu Anand",India,2019,TV-MA,172 min
 81112446,Badla,Sujoy Ghosh,"Amitabh Bachchan, Taapsee Pannu, Amrita Singh, Tony Luke, Manav Kaul",India,2019,TV-14,117 min
 81155858,Marriage Palace,Sunil Thakur,"Sharry Mann, Payal Rajput, Jaswinder Bhalla, B.N. Sharma, Harby Sangha, Nirmal Rishi, Anita Devgan, Rupinder Roopi",India,2018,TV-14,135 min
-80203147,To All the Boys I?�?ve Loved Before,Susan Johnson,"Lana Condor, Noah Centineo, Janel Parrish, Anna Cathcart, Andrew Bachelor, Trezzo Mahoro, Madaleine Arthur, Israel Broussard, Emilija Baranac, John Corbett",United States,2018,TV-14,100 min
+80203147,To All the Boys I?????ve Loved Before,Susan Johnson,"Lana Condor, Noah Centineo, Janel Parrish, Anna Cathcart, Andrew Bachelor, Trezzo Mahoro, Madaleine Arthur, Israel Broussard, Emilija Baranac, John Corbett",United States,2018,TV-14,100 min
 80196789,Bird Box,Susanne Bier,"Sandra Bullock, Trevante Rhodes, John Malkovich, Sarah Paulson, BD Wong, Jacki Weaver, Rosa Salazar, Danielle Macdonald, Lil Rel Howery, Tom Hollander",United States,2018,R,124 min
 81057246,Genius,Suseenthiran,"Roshan, Priyaa Lal, Aadukalam Naren, Singam Puli, Meera Krishnan, Jayaprakash",India,2018,TV-14,96 min
 81050190,Deadly Switch,Svetlana Cvetko,"Teri Polo, Dylan Walsh, Danika Yarosh, Hayley McLaughlin, Bryce Durfee, Matt Passmore, Heather Mazur, Ashlyn Pearce",United States,2019,TV-PG,86 min
