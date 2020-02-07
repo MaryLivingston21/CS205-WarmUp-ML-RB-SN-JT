@@ -55,13 +55,17 @@ public class UserInterface {
                             System.out.println("DIRECTOR");
                         }
                         //TODO: ERROR checking
+                        scanner.nextLine();
                         System.out.println("What's it's value?");
-                        String valueKnown = scanner.next();
+                        String valueKnown = scanner.nextLine();
+
                         
                         // make jdbc connection
                         jdbc.connect();
                         
                         // call query function 
+                        System.out.println(valueSearchingFor + " " + categoryKnown + " " +valueKnown);
+                        jdbc.query(valueSearchingFor,categoryKnown,valueKnown);
                         // testing for table-specifics
                         jdbc.query("rating", "title", "After");
                         jdbc.query("duration", "title", "After");
@@ -69,7 +73,7 @@ public class UserInterface {
                         jdbc.query("release_year", "director", "A.L Vijay");
                         jdbc.query("description", "director", "Jorge M. Fontana");
                         // queries for same value 
-                        jdbc.query("director", "title", "Jorge M. Fontana");
+                        // jdbc.query("director", "title", "Jorge M. Fontana");
                         
                     } else {
                         System.out.println("please load the data");
