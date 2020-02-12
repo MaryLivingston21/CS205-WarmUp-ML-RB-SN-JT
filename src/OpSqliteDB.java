@@ -60,7 +60,7 @@ public class OpSqliteDB
            case "date_added": v2 = "titles"; break;
            case "description": v2 = "titles"; break;
            // 3 cases for directors only
-           case "cast": v2 = "directors"; break;
+           case "actor": v2 = "directors"; break;
            case "country": v2 = "directors"; break;
            case "release_year": v2 = "directors"; break;
            // Shared Cases (focus is the input)
@@ -75,6 +75,7 @@ public class OpSqliteDB
            
            // this formating for inputs is working 
            String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
+           // System.out.println(query); testing
            ResultSet rs = statement.executeQuery(query);
            while (rs.next()) {
               String col1 = rs.getString(output_t);
