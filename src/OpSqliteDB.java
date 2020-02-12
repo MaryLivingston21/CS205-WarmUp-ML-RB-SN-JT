@@ -63,18 +63,17 @@ public class OpSqliteDB
            case "cast": v2 = "directors"; break;
            case "country": v2 = "directors"; break;
            case "release_year": v2 = "directors"; break;
-           // Shared Cases
-   //         case "rating": v2 = "directors"; break;
+           // Shared Cases (focus is the input)
+//            case "rating": input = "directors"; break;
 //            case "duration": v2 = "directors"; break;
 //            case "title": v2 = "directors"; break;
-            case "director": v2 = "directors"; break;
+//            case "director": v2 = "directors"; break;
            
            }
-           //Now for when their output_t is in both tables, lets try to do the query 
-           //and if there's a error, to try te other table
+           //For Shared cases: if error or no data; try other table
+           // Any ideas? Thoughts?
            
-          
-           //this formating for inputs is working 
+           // this formating for inputs is working 
            String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
            ResultSet rs = statement.executeQuery(query);
            while (rs.next()) {
