@@ -3,32 +3,15 @@ import java.io.*;
 import java.util.Scanner;
 public class OpSqliteDB 
 {
-
-   /* 
-   public static void main(String args[]) 
-   {
-         
-        Boolean load = true;
-        // User prompt
-                        
-        // create Table
-        if (load)
-        {
-           createTable();    
-        }   
-
-        // Make Conection 
-        Connection c = null;
-        c = connect(c);
-        
-        // Query from table
-        // query(c);        
-
+    public static Connection c;
+    // Default Constructor
+    public void OpSqliteDB()
+    {
+      // Make Conection 
+      Connection c = null;
     }
-    
-    */
-    
-    public static Connection connect(Connection c)
+          
+    public static Connection connect()
     {
         // connect the sqlite-JDBC driver using the current class loader
         try 
@@ -43,7 +26,7 @@ public class OpSqliteDB
         return c;
     }
     
-    public static void createTable() 
+    public static void createTables() 
     {
         try 
         {                 
@@ -59,16 +42,45 @@ public class OpSqliteDB
     
     }
     
-
-    public static void query(Connection c) 
+    // TODO modify query function takes parameters as three parses in
+    // TODO Make quries    
+    // 1st be attribute, hwta user whats(output)
+    // 2nd be user input type
+    // 3rd detail of input
+    
+    public static void query(String output_t, String input, String detail) 
     {
        try
        {       
            Statement statement = c.createStatement(); 
-           ResultSet rs = statement.executeQuery("select * from directors limit 10");
+           String v2 = "directors"; // default table
+           
+           switch (output_t) {
+           // 2 cases for titles only
+           case "date_added": v2 = "titles"; break;
+           case "description": v2 = "titles"; break;
+           // 3 cases for directors only
+           case "actor": v2 = "directors"; break;
+           case "country": v2 = "directors"; break;
+           case "release_year": v2 = "directors"; break;
+           // Shared Cases
+   //         case "rating": v2 = "directors"; break;
+//            case "duration": v2 = "directors"; break;
+//            case "title": v2 = "directors"; break;
+            case "director": v2 = "directors"; break;
+           
+           }
+           //Now for when their output_t is in both tables, lets try to do the query 
+           //and if there's a error, to try te other table
+           
+          
+           //this formating for inputs is working 
+           String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
+           // System.out.println(query); testing
+           ResultSet rs = statement.executeQuery(query);
            while (rs.next()) {
-              String col1 = rs.getString("title");
-              System.out.println("title = " + col1);
+              String col1 = rs.getString(output_t);
+              System.out.println(output_t + " " + col1);
            }
         
        } catch (SQLException e) {
@@ -82,7 +94,7 @@ public class OpSqliteDB
        } 
     }
 
-    public static void dropTables(Connection c)
+    public static void dropTables()
     {     
       try{           
          Statement statement = c.createStatement();                      
@@ -96,5 +108,4 @@ public class OpSqliteDB
           e.printStackTrace();
       }  
     }             
-
 } 
