@@ -50,10 +50,10 @@ private static final String[] CATEGORIES = {"show_id", "title", "director", "dat
                         String id = StripQuotes(spited[2]);
                         System.out.println("Making a query for " + find + " from table " + from + " using ID: " + id);
                         // make jdbc connection
-                        //jdbc.connect();
+                        jdbc.connect();
 
                         // call query function
-                        //jdbc.query("rating", "title", "After");
+                        jdbc.query(find, from, id);
                     } else {
                         //INCORRECT INPUT CATEGORIES
                         if (StringInArray(spited[0], CATEGORIES)) {
