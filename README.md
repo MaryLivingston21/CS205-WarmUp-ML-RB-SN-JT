@@ -1,9 +1,8 @@
 # CS205-WarmUp-ML-RB-SN-JT
 
-
-Lets meet up Monday at the library. What times work for you?
-Stanhope: Noon 
-Junda: 10:00am - 1:00 pm - 6:00pm
+## Lets meet up Monday at the library. What times work for you?
+### Stanhope: Noon 
+### Junda: Noon
 
 
 
