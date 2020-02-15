@@ -1,22 +1,33 @@
 # CS205-WarmUp-ML-RB-SN-JT
 
-## Lets meet up Monday at the library. What times work for you?
-### Stanhope: Noon 
-### Junda: Noon
+## Meeting
+Lets meet up Monday at the library. What times work for you?
+Stanhope: Noon 
+Junda: Noon
 
 
 
-### 0
+## Notice 1: Include sqlite-jdbc-3.30.1.jar file in classpath or libraries
+
+### For IntelliJ-Idea users: 
+make sure that sqlite-jdbc library is added in the Project Structure.
+File -> Project Structure -> Libraries -> New Projcet Library -> Java -> add sqlite-jdbc-3.30.1.jar
+
+### For jGrasp users:
+Settings -> class/classPath -> workspace -> classpaths -> new -> add sqlite-jdbc-3.30.1.jar
+
+### Linux terminal users:
 Compile and Run in Linux terminal:
 javac -classpath ".:sqlite-jdbc-3.30.1.jar:" OpSqliteDB.java
 java -classpath ".:sqlite-jdbc-3.30.1.jar:" OpSqliteDB
 
-### 1
-include sqlite-jdbc-3.30.1.jar file in classpath or dependency
+## Notice 2: install python3-pandas library
 
-### 2
-install python3-pandas library
-use load.py to load data from csv files.
-load.py is called in the create_table function.
+### Windows:
+D:\Python36\Scripts\pip install pandas
 
-windows: D:\Python36\Scripts\pip install pandas
+### Linux:
+sudo pip install pandas
+
+### Mac:
+pip install pandas
