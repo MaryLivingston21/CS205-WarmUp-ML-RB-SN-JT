@@ -1,15 +1,20 @@
 # CS205-WarmUp-ML-RB-SN-JT
 
 ## Meeting
-Lets meet up Monday at the library. What times work for you?
+Lets meet up Monday (2.17) at the library.  What times work for you?
 * Stanhope: Noon 
 * Junda: Noon
+* Mary: 
+* Robby: 
 
+## Project Introduction
+This is a CS205B warm up project. We focus on the database about Movie directors and details of the movie..... 
+We use Java and Python two programming languages. 
 
 ## Notice 0:
 Assume you are using IntelliJIDEA, after download from master branch, you need to configure the project.
-* click on edit configurations ->  "+" icon -> select "Application" -> name it as main, 
-* under Main_class section -> click on "..." on the right of the line -> then choose UserInterface.
+1) click on edit configurations ->  "+" icon -> select "Application" -> name it as main
+2) under Main_class section -> click on "..." on the right of the line -> then choose UserInterface.
 
 ## Notice 1: Include sqlite-jdbc-3.30.1.jar file in classpath or libraries
 
