@@ -17,7 +17,7 @@ public class OpSqliteDB
         try 
         {   
            Class.forName("org.sqlite.JDBC");
-           c=DriverManager.getConnection("jdbc:sqlite:Film.db");                                    
+           c=DriverManager.getConnection("jdbc:sqlite:src/Film.db");
                    
         } catch(Exception e) {
         
@@ -31,7 +31,7 @@ public class OpSqliteDB
         try 
         {                 
            Runtime rt = Runtime.getRuntime();
-           Process pr = rt.exec("python3 load.py");               
+           Process pr = rt.exec("python3 src/load.py");
            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));                
            input.close();                                                                                                       
                                    
