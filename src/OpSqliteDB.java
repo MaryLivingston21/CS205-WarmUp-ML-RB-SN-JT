@@ -14,13 +14,11 @@ public class OpSqliteDB
     public static Connection connect()
     {
         // connect the sqlite-JDBC driver using the current class loader
-        try
-        {
+        try {
            Class.forName("org.sqlite.JDBC");
            c=DriverManager.getConnection("jdbc:sqlite:src/Film.db");
-                   
+
         } catch(Exception e) {
-        
             e.printStackTrace();
         } 
         return c;
@@ -28,18 +26,14 @@ public class OpSqliteDB
     
     public static void createTables()
     {
-        try
-        {
+        try {
            Runtime rt = Runtime.getRuntime();
-           Process pr = rt.exec("python src/load.py");
+           Process pr = rt.exec("python3 src/load.py");
            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));                
-           input.close();                                                                                                       
-                                   
+           input.close();
         } catch(Exception e) {        
            e.printStackTrace();
-
-        } 
-    
+        }
     }
 
 
@@ -55,9 +49,6 @@ public class OpSqliteDB
             table1 = getTableName(type1);
             table2 = getTableName(type2);
 
-//          rating country India director A. L. Vijay
-//  select titles.rating from directors, titles where directors.director = titles.director and directors.country = 'India' and directors.director = 'A. L. Vijay' ;
-//  select directors.rating from directors, titles where directors.netflix_titles = titles.show_id and directors.country = "India" and directors.director = "A. L. Vijay";
             String query = "select " + table0 + "."+ output_t + " from " + "directors, titles" + " where directors.netflix_titles = titles.show_id and "  + table1 + "." + type1 +
                     " = \"" + input1  + "\" and " + table2 + "." + type2 + " = \"" + input2 + "\";" ;
 
@@ -101,8 +92,6 @@ public class OpSqliteDB
         return v2;
     }
 
-    // TODO modify query function takes parameters as three parses in
-    // TODO Make quries    
     // 1st be attribute, hwta user whats(output)
     // 2nd be user input type
     // 3rd detail of input
