@@ -62,16 +62,17 @@ public class Parser {
                 // IF INCORRECT INPUT LENGTH
                 if (splited.length < 3 || splited.length == 4) {
                     System.out.println("Not enough arguments entered, please try again with more info");
-                } else if (splited.length > 5) {
+                }
+                else if (splited.length > 5) {
                     System.out.println("Too many arguments entered, try wrapping your last info in \"movie name\"");
-                } else if(!loadData){
+                }
+                else if(!loadData){
                     System.out.println("No data loaded yet. You must enter \"load data\" before searching.");
                 }
                 //CORRECT INPUT LENGTH
                 else {
-                    Boolean go_on = false;
                     //CORRECT INPUT CATEGORIES
-                    //If with 3 args
+                    // With 3 args
                     if (splited.length == 3) {
                         if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES)) {
                             String find = splited[0];
@@ -94,13 +95,8 @@ public class Parser {
                             }
                         }
                     }
-                    //if with 5 args
+                    // With 5 args
                     else {
-//                        for (String s : splited) {
-//                            if (StringInArray(s, CATEGORIES)) {
-//                                go_on = true;
-//                            }
-//                        }
                         if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES) && StringInArray(splited[3], CATEGORIES)) {
                             String find = splited[0];
                             String from1 = splited[1];
@@ -124,9 +120,6 @@ public class Parser {
                             } else if (StringInArray(splited[1], CATEGORIES) || StringInArray(splited[3], CATEGORIES)){
                                 System.out.println("Sorry we don't know either \"" + splited[1] + "or \"" + splited[3] + "\". Try another field. EX: title");
                             }
-//                            else {
-//                                System.out.println("Sorry we don't know \"" + splited[1] + "\". Try another field. EX: title");
-//                            }
                         }
                     }
                     //
