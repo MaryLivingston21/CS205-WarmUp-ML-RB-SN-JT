@@ -48,10 +48,12 @@ public class OpSqliteDB
     // 2nd be user input type
     // 3rd detail of input
     
-    public static void query(String output_t, String input, String detail)
+    public static String query(String output_t, String input, String detail)
     {
+        String result ="";
        try
        {
+           String col1 = "";
            Statement statement = c.createStatement(); 
            String v2 = "directors"; // default table
            
@@ -79,10 +81,11 @@ public class OpSqliteDB
            // System.out.println(query); testing
            ResultSet rs = statement.executeQuery(query);
            while (rs.next()) {
-              String col1 = rs.getString(output_t);
+              col1 = rs.getString(output_t);
               System.out.println(output_t + " " + col1);
            }
-        
+           result = output_t + "\t " + col1;
+
        } catch (SQLException e) {
            
            System.err.println(e.getMessage());
@@ -91,8 +94,10 @@ public class OpSqliteDB
            
            e.printStackTrace();
            
-       } 
+       }
+        return result;
     }
+
 
     public static void dropTables()
     {
