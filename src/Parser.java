@@ -104,8 +104,8 @@ public class Parser {
                             String from2 = splited[3];
                             String id2 = StripQuotes(splited[4]);
 
-                            System.out.println("Making a query for " + find + " from table " + from1 + " using ID: " + id1 +
-                                    " and from table " + from2 + " using ID: " + id2 );
+                            System.out.println("Making a query for " + find + " from col " + from1 + " using ID: " + id1 +
+                                    " and from col " + from2 + " using ID: " + id2 );
 
                             // make jdbc connection
                             jdbc.connect();

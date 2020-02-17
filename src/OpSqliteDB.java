@@ -50,6 +50,7 @@ public class OpSqliteDB
             Statement statement = c.createStatement();
             String table = "directors"; // default table
             getTableName(table);
+//            rating country India director A. L. Vijay
 //  select titles.rating from directors, titles where directors.director = titles.director and directors.country = 'India' and directors.director = 'A. L. Vijay' ;
             String query = "select " + table + "."+ output_t + " from " + "directors, titles" + "where d.netflix_titles = t.titles and " + type1 +
                                 " = \"" + input1  + " and " + type2 + " = \"" + input2 + "\";" ;
