@@ -28,27 +28,26 @@ public class OpSqliteDB
     {
         try {
            Runtime rt = Runtime.getRuntime();
-           Process pr = rt.exec("python3 src/load.py");
-           BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));                
+           Process pr = rt.exec("python3 src/load.py");   // make sure that your python3 can be run in your shell // pip pandas is installed.
+           BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
            input.close();
         } catch(Exception e) {        
            e.printStackTrace();
         }
     }
 
-
     public static String query(String output_t, String type1, String input1, String type2, String input2) {
         String result = "";
         try{
             String col1 = "";
-            Statement statement = c.createStatement();
-            String table0 = "directors";
-            String table1 = "directors";
-            String table2 = "directors";
+            String table0 = "";
+            String table1 = "";
+            String table2 = "";
             table0 = getTableName(output_t);
             table1 = getTableName(type1);
             table2 = getTableName(type2);
 
+            Statement statement = c.createStatement();
             String query = "select " + table0 + "."+ output_t + " from " + "directors, titles" + " where directors.netflix_titles = titles.show_id and "  + table1 + "." + type1 +
                     " = \"" + input1  + "\" and " + table2 + "." + type2 + " = \"" + input2 + "\";" ;
 
@@ -71,7 +70,6 @@ public class OpSqliteDB
         return result;
     }
 
-
     private static String getTableName(String output_t) {
         String v2 = "directors"; // default table
         switch (output_t) {
@@ -84,8 +82,8 @@ public class OpSqliteDB
             case "release_year": v2 = "directors"; break;
             // Shared Cases
             //         case "rating": v2 = "directors"; break;
-//            case "duration": v2 = "directors"; break;
-//            case "title": v2 = "directors"; break;
+            //         case "duration": v2 = "directors"; break;
+            //         case "title": v2 = "directors"; break;
             case "director": v2 = "directors"; break;
 
         }
@@ -133,20 +131,4 @@ public class OpSqliteDB
        }
         return result;
     }
-
-
-    public static void dropTables()
-    {
-      try{
-         Statement statement = c.createStatement();                      
-         statement.executeUpdate("drop table if exists directors;");
-         statement.executeUpdate("drop table if exists titles;");
-         
-      } catch (SQLException e) {        
-         System.err.println(e.getMessage());
-     
-      } catch(Exception e) {     
-          e.printStackTrace();
-      }  
-    }             
 } 
