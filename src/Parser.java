@@ -101,28 +101,32 @@ public class Parser {
 //                                go_on = true;
 //                            }
 //                        }
-                        if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES) && StringInArray(splited[1], CATEGORIES) ) {
+                        if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES) && StringInArray(splited[3], CATEGORIES)) {
                             String find = splited[0];
                             String from1 = splited[1];
                             String id1 = StripQuotes(splited[2]);
                             String from2 = splited[3];
                             String id2 = StripQuotes(splited[4]);
 
-                            System.out.println("Making a query for " + find + " from table " + from1 + " using ID: " + id1 + " and from table " + from1 + " using ID: " + id1 );
+                            System.out.println("Making a query for " + find + " from table " + from1 + " using ID: " + id1 +
+                                    " and from table " + from2 + " using ID: " + id2 );
 
                             // make jdbc connection
                             jdbc.connect();
 
-                            // call query function
+                            // call 5 arg query function
                             jdbc.query(find, from1, id2, from2, id2);
 
                         } else {
                             //INCORRECT INPUT CATEGORIES
                             if (StringInArray(splited[0], CATEGORIES)) {
                                 System.out.println("Sorry we don't know \"" + splited[0] + "\". Try another field. EX: title");
-                            } else {
-                                System.out.println("Sorry we don't know \"" + splited[1] + "\". Try another field. EX: title");
+                            } else if (StringInArray(splited[1], CATEGORIES) || StringInArray(splited[3], CATEGORIES)){
+                                System.out.println("Sorry we don't know either \"" + splited[1] + "or \"" + splited[3] + "\". Try another field. EX: title");
                             }
+//                            else {
+//                                System.out.println("Sorry we don't know \"" + splited[1] + "\". Try another field. EX: title");
+//                            }
                         }
                     }
                     //
