@@ -95,6 +95,7 @@ public class Parser {
                             }
                         }
                     }
+                    // TODO works on 5 variables user input
                     // With 5 args
                     else {
                         if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES) && StringInArray(splited[3], CATEGORIES)) {
@@ -111,7 +112,9 @@ public class Parser {
                             jdbc.connect();
 
                             // call 5 arg query function
-                            jdbc.query(find, from1, id2, from2, id2);
+//                             rating country India director A. L. Vijay
+                            jdbc.query("rating","country","India","director","A. L. Vijay");
+//                            jdbc.query(find, from1, id2, from2, id2);
 
                         } else {
                             //INCORRECT INPUT CATEGORIES

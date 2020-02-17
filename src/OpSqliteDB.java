@@ -43,17 +43,24 @@ public class OpSqliteDB
     }
 
 
-    public static void query(String output_t, String type1, String input1, String type2, String input2) {
+    public static String query(String output_t, String type1, String input1, String type2, String input2) {
         String result = "";
         try{
             String col1 = "";
             Statement statement = c.createStatement();
-            String table = "directors"; // default table
-            getTableName(table);
-//            rating country India director A. L. Vijay
+            String table0 = "directors";
+            String table1 = "directors";
+            String table2 = "directors";
+            table0 = getTableName(output_t);
+            table1 = getTableName(type1);
+            table2 = getTableName(type2);
+
+//          rating country India director A. L. Vijay
 //  select titles.rating from directors, titles where directors.director = titles.director and directors.country = 'India' and directors.director = 'A. L. Vijay' ;
-            String query = "select " + table + "."+ output_t + " from " + "directors, titles" + "where d.netflix_titles = t.titles and " + type1 +
-                                " = \"" + input1  + " and " + type2 + " = \"" + input2 + "\";" ;
+//  select directors.rating from directors, titles where directors.netflix_titles = titles.show_id and directors.country = "India" and directors.director = "A. L. Vijay";
+            String query = "select " + table0 + "."+ output_t + " from " + "directors, titles" + " where directors.netflix_titles = titles.show_id and "  + table1 + "." + type1 +
+                    " = \"" + input1  + "\" and " + table2 + "." + type2 + " = \"" + input2 + "\";" ;
+
             // System.out.println(query); testing
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
@@ -61,17 +68,16 @@ public class OpSqliteDB
                 System.out.println(output_t + " " + col1);
             }
             result = output_t + "\t " + col1;
-
+            if (col1.equals("")) {
+                System.out.println("Found nothing");
+            }
 
         } catch (SQLException e) {
-
             System.err.println(e.getMessage());
-
         } catch(Exception e) {
-
             e.printStackTrace();
-
         }
+        return result;
     }
 
 
@@ -123,6 +129,9 @@ public class OpSqliteDB
               System.out.println(output_t + " " + col1);
            }
            result = output_t + "\t " + col1;
+           if (col1.equals("")) {
+               System.out.println("Found nothing");
+           }
 
        } catch (SQLException e) {
            

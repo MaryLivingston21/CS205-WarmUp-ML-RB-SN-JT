@@ -63,6 +63,9 @@ public class UserInterface {
                         // call query function 
                         //System.out.println(valueSearchingFor + " " + categoryKnown + " " +valueKnown);
                         jdbc.query(valueSearchingFor,categoryKnown,valueKnown);
+                        jdbc.query("rating","country","India","director","A. L. Vijay");
+                        jdbc.query("actor","rating","TV-PG","director","A.L. Vijay");
+                        jdbc.query("release_year","country","India");
                         // testing for table-specifics
 //                        jdbc.query("rating", "title", "After");
 //                        jdbc.query("duration", "title", "After");
