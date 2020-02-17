@@ -5,7 +5,7 @@ Lets meet up Monday (2.17) at the library.  What times work for you?
 * Stanhope: Noon 
 * Junda: Noon
 * Mary: 
-* Robby: 
+* Robby: Noon
 
 ## Project Introduction
 This is a CS205B warm up project. We focus on the database about Movie directors and details of the movie..... 

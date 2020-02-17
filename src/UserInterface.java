@@ -2,15 +2,13 @@ import java.util.Scanner;
 
 public class UserInterface {
     public static void main(String[] args) {
- 
-
         // Get User's Name -> testing out scanner
         Scanner scanner = new Scanner(System.in);
         System.out.print("Welcome to our program! \nEnter your name:  ");
         String name = scanner.next();
         System.out.println("Welcome " + name);
         OpSqliteDB jdbc = new OpSqliteDB();     // new Object jdbc
-        
+
         char choice = ' ';
         boolean loadData = false;  //TODO: change this back to run eventually
         while (choice != 'e') {
@@ -58,10 +56,10 @@ public class UserInterface {
                         System.out.println("What's it's value?");
                         String valueKnown = scanner.nextLine();
 
-                        
+
                         // make jdbc connection
                         jdbc.connect();
-                        
+
                         // call query function 
                         System.out.println(valueSearchingFor + " " + categoryKnown + " " +valueKnown);
                         jdbc.query(valueSearchingFor,categoryKnown,valueKnown);
@@ -73,7 +71,7 @@ public class UserInterface {
                         jdbc.query("description", "director", "Jorge M. Fontana");
                         // queries for same value 
                         jdbc.query("title", "director", "Jorge M. Fontana");
-                        
+
                     } else {
                         System.out.println("please load the data");
                     }
