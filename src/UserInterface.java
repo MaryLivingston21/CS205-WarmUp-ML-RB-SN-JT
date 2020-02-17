@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class UserInterface {
     public static void main(String[] args) {
- 
+
 
         // Get User's Name -> testing out scanner
         Scanner scanner = new Scanner(System.in);
@@ -12,7 +12,7 @@ public class UserInterface {
         OpSqliteDB jdbc = new OpSqliteDB();     // new Object jdbc
         
         char choice = ' ';
-        boolean loadData = true;  //TODO: change this back to run eventually
+        boolean loadData = false;  //TODO: change this back to run eventually
         while (choice != 'e') {
             System.out.print("Menu: help (h) load data (l) get data (g) exit (e)");
             choice = scanner.next().charAt(0);

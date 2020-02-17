@@ -1,21 +1,21 @@
 import java.sql.*;
 import java.io.*;
 import java.util.Scanner;
-public class OpSqliteDB 
+public class OpSqliteDB
 {
     public static Connection c;
     // Default Constructor
     public void OpSqliteDB()
     {
-      // Make Conection 
+      // Make Conection
       Connection c = null;
     }
-          
+
     public static Connection connect()
     {
         // connect the sqlite-JDBC driver using the current class loader
-        try 
-        {   
+        try
+        {
            Class.forName("org.sqlite.JDBC");
            c=DriverManager.getConnection("jdbc:sqlite:Film.db");                                    
                    
@@ -26,10 +26,10 @@ public class OpSqliteDB
         return c;
     }
     
-    public static void createTables() 
+    public static void createTables()
     {
-        try 
-        {                 
+        try
+        {
            Runtime rt = Runtime.getRuntime();
            Process pr = rt.exec("python3 load.py");               
            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));                
@@ -48,10 +48,10 @@ public class OpSqliteDB
     // 2nd be user input type
     // 3rd detail of input
     
-    public static void query(String output_t, String input, String detail) 
+    public static void query(String output_t, String input, String detail)
     {
        try
-       {       
+       {
            Statement statement = c.createStatement(); 
            String v2 = "directors"; // default table
            
@@ -95,8 +95,8 @@ public class OpSqliteDB
     }
 
     public static void dropTables()
-    {     
-      try{           
+    {
+      try{
          Statement statement = c.createStatement();                      
          statement.executeUpdate("drop table if exists directors;");
          statement.executeUpdate("drop table if exists titles;");
