@@ -40,3 +40,7 @@ Compile and Run in Linux terminal:
 
 ### Mac:
 * pip install pandas
+
+## Notice 3: install sqlite3
+1) install https://www.sqlite.org/index.html
+2) include in your system environment path
