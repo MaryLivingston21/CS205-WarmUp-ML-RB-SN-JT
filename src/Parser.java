@@ -57,40 +57,75 @@ public class Parser {
             else if (splited[0].trim().equals("exit")) {
                 System.out.println("Program powering down...");
             }
-
             //query the input
             else {
                 // IF INCORRECT INPUT LENGTH
-                if (splited.length < 3) {
+                if (splited.length < 3 || splited.length == 4) {
                     System.out.println("Not enough arguments entered, please try again with more info");
-                } else if (splited.length > 3) {
+                } else if (splited.length > 5) {
                     System.out.println("Too many arguments entered, try wrapping your last info in \"movie name\"");
                 } else if(!loadData){
                     System.out.println("No data loaded yet. You must enter \"load data\" before searching.");
                 }
                 //CORRECT INPUT LENGTH
                 else {
+                    Boolean go_on = false;
                     //CORRECT INPUT CATEGORIES
-                    if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES)) {
-                        String find = splited[0];
-                        String from = splited[1];
-                        String id = StripQuotes(splited[2]);
-                        System.out.println("Making a query for " + find + " from table " + from + " using ID: " + id);
+                    //If with 3 args
+                    if (splited.length == 3) {
+                        if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES)) {
+                            String find = splited[0];
+                            String from = splited[1];
+                            String id = StripQuotes(splited[2]);
+                            System.out.println("Making a query for " + find + " from table " + from + " using ID: " + id);
 
-                        // make jdbc connection
-                        jdbc.connect();
+                            // make jdbc connection
+                            jdbc.connect();
 
-                        // call query function
-                        jdbc.query(find, from, id);
+                            // call query function
+                            jdbc.query(find, from, id);
 
-                    } else {
-                        //INCORRECT INPUT CATEGORIES
-                        if (StringInArray(splited[0], CATEGORIES)) {
-                            System.out.println("Sorry we don't know \"" + splited[0] + "\". Try another field. EX: title");
                         } else {
-                            System.out.println("Sorry we don't know \"" + splited[1] + "\". Try another field. EX: title");
+                            //INCORRECT INPUT CATEGORIES
+                            if (StringInArray(splited[0], CATEGORIES)) {
+                                System.out.println("Sorry we don't know \"" + splited[0] + "\". Try another field. EX: title");
+                            } else {
+                                System.out.println("Sorry we don't know \"" + splited[1] + "\". Try another field. EX: title");
+                            }
                         }
                     }
+                    //if with 5 args
+                    else {
+//                        for (String s : splited) {
+//                            if (StringInArray(s, CATEGORIES)) {
+//                                go_on = true;
+//                            }
+//                        }
+                        if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES) && StringInArray(splited[1], CATEGORIES) ) {
+                            String find = splited[0];
+                            String from1 = splited[1];
+                            String id1 = StripQuotes(splited[2]);
+                            String from2 = splited[3];
+                            String id2 = StripQuotes(splited[4]);
+
+                            System.out.println("Making a query for " + find + " from table " + from1 + " using ID: " + id1 + " and from table " + from1 + " using ID: " + id1 );
+
+                            // make jdbc connection
+                            jdbc.connect();
+
+                            // call query function
+                            jdbc.query(find, from1, id2, from2, id2);
+
+                        } else {
+                            //INCORRECT INPUT CATEGORIES
+                            if (StringInArray(splited[0], CATEGORIES)) {
+                                System.out.println("Sorry we don't know \"" + splited[0] + "\". Try another field. EX: title");
+                            } else {
+                                System.out.println("Sorry we don't know \"" + splited[1] + "\". Try another field. EX: title");
+                            }
+                        }
+                    }
+                    //
                 }
             }
         }
