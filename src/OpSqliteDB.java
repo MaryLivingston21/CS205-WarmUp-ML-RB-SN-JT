@@ -31,7 +31,7 @@ public class OpSqliteDB
         try
         {
            Runtime rt = Runtime.getRuntime();
-           Process pr = rt.exec("python3 src/load.py");
+           Process pr = rt.exec("python src/load.py");
            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));                
            input.close();                                                                                                       
                                    
