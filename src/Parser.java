@@ -43,8 +43,8 @@ public class Parser {
                     System.out.println("data already loaded");
                 }else{
                     System.out.println("Loading data");
-                    jdbc.createTables();
                     loadData = true;
+                    jdbc.createTables();
                     System.out.println("data Loaded");
                 }
             }
