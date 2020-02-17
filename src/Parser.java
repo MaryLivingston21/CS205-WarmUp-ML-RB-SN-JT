@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 public class Parser {
 
+    //Array of all categories in the dataset
     private static final String[] CATEGORIES = {"show_id", "title", "director", "date_added", "rating", "duration",
             "description", "netflix_titles", "cast", "country", "release_year", "duration"};
 
     public static void main(String[] args) {
 
-        //Data Base
-        OpSqliteDB jdbc = new OpSqliteDB();     // new Object jdbc
+        //Create Data Base - new Object jdbc
+        OpSqliteDB jdbc = new OpSqliteDB();
         boolean loadData = false;
 
         //Parsing
@@ -24,19 +25,15 @@ public class Parser {
 
             //GET INPUT
             input = scanner.nextLine();
-            String[] spited = input.trim().split("\\s+");
+            String[] splited = input.trim().split("\\s+");
 
-            //FIX multiple world titles
-            if(spited.length > 3){
-                String searchHeader = "";
-                for(int i=2; i<spited.length; i++){
-                    searchHeader += spited[i] + " ";
-                }
-                spited = new String[]{spited[0],spited[1],searchHeader.trim()};
+            //if multiple word titles, concatenate 
+            if(splited.length > 3){
+                splited = concatenateString(splited);
             }
 
             //HELP TODO: double check
-            if(spited[0].trim().equals("help")){
+            if(splited[0].trim().equals("help")){
                 System.out.println("Enter \"help\" for help, \"load data\" to load the data, and \"exit\" to leave the program.");
                 System.out.println("Enter what you want to find, the category you know, and its value");
                 System.out.println("Example: director title \"A Christmas Prince: The Royal Wedding\"");
@@ -44,39 +41,40 @@ public class Parser {
 
             }
             //LOAD DATA
-            else if (spited[0].trim().equals("load")) {
+            else if (splited[0].trim().equals("load")) {
                 if(loadData){
-                    System.out.println("data already loaded");
+                    System.out.println("The data has already been loaded");
                 }else{
-                    System.out.println("Loading data");
+                    System.out.println("Loading data...");
                     loadData = true;
                     jdbc.createTables();
-                    System.out.println("data Loaded");
+                    //TODO: error checking if data doesnt load
+                    System.out.println("The data is now loaded.");
                 }
             }
 
             //if input == exit
-            else if (spited[0].trim().equals("exit")) {
-                System.out.println("Good Bye");
+            else if (splited[0].trim().equals("exit")) {
+                System.out.println("Program powering down...");
             }
 
             //query the input
             else {
                 // IF INCORRECT INPUT LENGTH
-                if (spited.length < 3) {
-                    System.out.println("not enough arguments entered, give us some more info");
-                } else if (spited.length > 3) {
-                    System.out.println("to many arguments entered try wrapping your last info in \"movie name\"");
-                } else if(loadData){
+                if (splited.length < 3) {
+                    System.out.println("Not enough arguments entered, please try again with more info");
+                } else if (splited.length > 3) {
+                    System.out.println("Too many arguments entered, try wrapping your last info in \"movie name\"");
+                } else if(!loadData){
                     System.out.println("No data loaded yet. You must enter \"load data\" before searching.");
                 }
                 //CORRECT INPUT LENGTH
                 else {
                     //CORRECT INPUT CATEGORIES
-                    if (StringInArray(spited[0], CATEGORIES) && StringInArray(spited[1], CATEGORIES)) {
-                        String find = spited[0];
-                        String from = spited[1];
-                        String id = StripQuotes(spited[2]);
+                    if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES)) {
+                        String find = splited[0];
+                        String from = splited[1];
+                        String id = StripQuotes(splited[2]);
                         System.out.println("Making a query for " + find + " from table " + from + " using ID: " + id);
 
                         // make jdbc connection
@@ -87,10 +85,10 @@ public class Parser {
 
                     } else {
                         //INCORRECT INPUT CATEGORIES
-                        if (StringInArray(spited[0], CATEGORIES)) {
-                            System.out.println("Sorry we don't know \"" + spited[0] + "\". Try another field. EX: title");
+                        if (StringInArray(splited[0], CATEGORIES)) {
+                            System.out.println("Sorry we don't know \"" + splited[0] + "\". Try another field. EX: title");
                         } else {
-                            System.out.println("Sorry we don't know \"" + spited[1] + "\". Try another field. EX: title");
+                            System.out.println("Sorry we don't know \"" + splited[1] + "\". Try another field. EX: title");
                         }
                     }
                 }
@@ -121,4 +119,20 @@ public class Parser {
         return  originalStr;
     }
 
+    // the instance of the data is stored in an array of strings
+    // if a value has multiple words, this method adjusts the array so that all words from the value are in the same index
+    public static String[] concatenateString(String[] splited){
+        if(splited.length > 3) {
+            String searchHeader = "";
+            for (int i = 2; i < splited.length; i++) {
+                searchHeader += splited[i] + " ";
+            }
+            splited = new String[]{splited[0], splited[1], searchHeader.trim()};
+            return splited;
+        }else {
+            return splited;
+        }
+    }
+
 }
+
