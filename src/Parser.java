@@ -3,19 +3,25 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Parser {
+
     private static final String[] CATEGORIES = {"show_id", "title", "director", "date_added", "rating", "duration",
             "description", "netflix_titles", "cast", "country", "release_year", "duration"};
+
     public static void main(String[] args) {
+
         //Data Base
         OpSqliteDB jdbc = new OpSqliteDB();     // new Object jdbc
         boolean loadData = false;
+
         //Parsing
         System.out.println("Welcome to our Movie program!");
-        System.out.println("Enter \"help\" for HELP, \"load data\" to load the data and \"exit\" to Leave");
-        System.out.println("Enter what you want to find and what you know and its name");
+        System.out.println("Enter \"help\" for help, else enter first query.");
         Scanner scanner = new Scanner(System.in);
         String input = "";
+
+        // Input Handling
         while (!input.equals("exit")){
+
             //GET INPUT
             input = scanner.nextLine();
             String[] spited = input.trim().split("\\s+");
@@ -29,10 +35,10 @@ public class Parser {
                 spited = new String[]{spited[0],spited[1],searchHeader.trim()};
             }
 
-            //HELP
+            //HELP TODO: double check
             if(spited[0].trim().equals("help")){
-                System.out.println("Enter \"help\" for HELP, \"load data\" to load the data and \"exit\" to Leave");
-                System.out.println("Enter what you want to find, and what you know already and its name");
+                System.out.println("Enter \"help\" for help, \"load data\" to load the data, and \"exit\" to leave the program.");
+                System.out.println("Enter what you want to find, the category you know, and its value");
                 System.out.println("Example: director title \"A Christmas Prince: The Royal Wedding\"");
                 System.out.println("Output : John Schultz");
 
@@ -48,13 +54,15 @@ public class Parser {
                     System.out.println("data Loaded");
                 }
             }
-            //EXIT
+
+            //if input == exit
             else if (spited[0].trim().equals("exit")) {
                 System.out.println("Good Bye");
             }
-            //Trying to Query
+
+            //query the input
             else {
-                //INCORRECT INPUT LENGTH
+                // IF INCORRECT INPUT LENGTH
                 if (spited.length < 3) {
                     System.out.println("not enough arguments entered, give us some more info");
                 } else if (spited.length > 3) {
@@ -70,11 +78,13 @@ public class Parser {
                         String from = spited[1];
                         String id = StripQuotes(spited[2]);
                         System.out.println("Making a query for " + find + " from table " + from + " using ID: " + id);
+
                         // make jdbc connection
                         jdbc.connect();
 
                         // call query function
                         jdbc.query(find, from, id);
+
                     } else {
                         //INCORRECT INPUT CATEGORIES
                         if (StringInArray(spited[0], CATEGORIES)) {
@@ -85,11 +95,11 @@ public class Parser {
                     }
                 }
             }
-
         }
-
     }
 
+    // takes the input (array[string]) and the target value(string)
+    // if target value is in array, return true, else false
     public static boolean StringInArray(String target, String[] list){
         for (String str : list){
             if(str.equals(target)){
@@ -98,6 +108,8 @@ public class Parser {
         }
         return false;
     }
+
+    // strips quotes from the beginning and end of strings
     public static String StripQuotes(String originalStr){
         originalStr.trim();
         if (originalStr.startsWith("\"")) {
