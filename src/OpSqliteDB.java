@@ -35,7 +35,7 @@ public class OpSqliteDB
            e.printStackTrace();
         }
     }
-
+    // @param what user want to get; input type1; input1; input type2; input2
     public static String query(String output_t, String type1, String input1, String type2, String input2) {
         String result = "";
         try{
@@ -51,7 +51,7 @@ public class OpSqliteDB
             String query = "select " + table0 + "."+ output_t + " from " + "directors, titles" + " where directors.netflix_titles = titles.show_id and "  + table1 + "." + type1 +
                     " = \"" + input1  + "\" and " + table2 + "." + type2 + " = \"" + input2 + "\";" ;
 
-            System.out.println(query); // testing
+            // System.out.println(query); // testing
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
                 col1 = rs.getString(output_t);
