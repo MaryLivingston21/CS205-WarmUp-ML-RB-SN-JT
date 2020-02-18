@@ -35,11 +35,14 @@ public class OpSqliteDB
            e.printStackTrace();
         }
     }
-    // @param what user want to get; input type1; input1; input type2; input2
-    public static String query(String output_t, String type1, String input1, String type2, String input2) {
-        String result = "";
+    
+    // @param String what user want to get output type;
+    // @param String input1 type;
+    // @param String input1;
+    // @param String input2 type2;
+    // @param String input2
+    public static void query(String output_t, String type1, String input1, String type2, String input2) {
         try{
-            String col1 = "";
             String table0 = "";
             String table1 = "";
             String table2 = "";
@@ -53,82 +56,83 @@ public class OpSqliteDB
 
             // System.out.println(query); // testing
             ResultSet rs = statement.executeQuery(query);
-            while (rs.next()) {
-                col1 = rs.getString(output_t);
-                System.out.println(output_t + " " + col1);
-            }
-            result = output_t + "\t " + col1;
-            if (col1.equals("")) {
-                System.out.println("Found nothing");
-            }
+            printResult(rs, output_t);
 
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         } catch(Exception e) {
             e.printStackTrace();
         }
-        return result;
     }
-
-    private static String getTableName(String output_t) {
-        String v2 = "directors"; // default table
-        switch (output_t) {
+    
+    // @param type: attribute's name
+    // @return String table's name
+    private static String getTableName(String type) {
+        //Now for when their output_t is in both tables, lets try to do the query
+        //and if there's a error, to try te other table
+        String table = "directors"; // default table
+        switch (type) {
             // 2 cases for titles only
-            case "date_added": v2 = "titles"; break;
-            case "description": v2 = "titles"; break;
+            case "date_added": table = "titles"; break;
+            case "description": table = "titles"; break;
             // 3 cases for directors only
-            case "actor": v2 = "directors"; break;
-            case "country": v2 = "directors"; break;
-            case "release_year": v2 = "directors"; break;
+            case "actor": table = "directors"; break;
+            case "country": table = "directors"; break;
+            case "release_year": table = "directors"; break;
             // Shared Cases
-            //         case "rating": v2 = "directors"; break;
-            //         case "duration": v2 = "directors"; break;
-            //         case "title": v2 = "directors"; break;
-            case "director": v2 = "directors"; break;
+            //         case "rating": table = "directors"; break;
+            //         case "duration": table = "directors"; break;
+            //         case "title": table = "directors"; break;
+            case "director": table = "directors"; break;
 
         }
-        return v2;
+        return table;
     }
 
-    // 1st be attribute, hwta user whats(output)
-    // 2nd be user input type
-    // 3rd detail of input
-    
-    public static String query(String output_t, String input, String detail)
+    // @param 1st be attribute, hwta user whats(output)
+    // @param 2nd be user input type
+    // @param 3rd detail of input
+    public static void query(String output_t, String input, String detail)
     {
-        String result ="";
        try
        {
-           String col1 = "";
            Statement statement = c.createStatement();
            
            String v2 = getTableName(output_t);
-           //Now for when their output_t is in both tables, lets try to do the query 
-           //and if there's a error, to try te other table
-           
-          
+
            //this formating for inputs is working 
            String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
            // System.out.println(query); testing
            ResultSet rs = statement.executeQuery(query);
-           while (rs.next()) {
-              col1 = rs.getString(output_t);
-              System.out.println(output_t + " " + col1);
-           }
-           result = output_t + "\t " + col1;
-           if (col1.equals("")) {
-               System.out.println("Found nothing");
-           }
+
+           printResult(rs, output_t);
 
        } catch (SQLException e) {
-           
            System.err.println(e.getMessage());
            
        } catch(Exception e) {
-           
            e.printStackTrace();
-           
        }
-        return result;
+    }
+
+    // @param ResultSet rs
+    // @pram String output type
+    public static void printResult(ResultSet rs, String output_t) {
+        try {
+            String result = "";
+            while (rs.next()) {
+                result = rs.getString(output_t);
+                System.out.println("----------------------------------");
+                System.out.println(output_t + "\t|\t" + result);
+            }
+            if (result.equals("")) {
+                System.out.println("----------------------------------");
+                System.out.println("Found nothing");
+            }
+            System.out.println("----------------------------------");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+
+        }
     }
 } 
