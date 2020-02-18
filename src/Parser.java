@@ -6,7 +6,7 @@ public class Parser {
 
     //Array of all categories in the dataset
     private static final String[] CATEGORIES = {"show_id", "title", "director", "date_added", "rating", "duration",
-            "description", "netflix_titles", "cast", "country", "release_year", "duration"};
+            "description", "netflix_titles", "actor", "country", "release_year", "duration"};
 
     public static void main(String[] args) {
 
@@ -95,7 +95,6 @@ public class Parser {
                             }
                         }
                     }
-                    // TODO works on 5 variables user input
                     // With 5 args
                     else {
                         if (StringInArray(splited[0], CATEGORIES) && StringInArray(splited[1], CATEGORIES) && StringInArray(splited[3], CATEGORIES)) {
@@ -108,13 +107,15 @@ public class Parser {
                             System.out.println("Making a query for " + find + " from col " + from1 + " using ID: " + id1 +
                                     " and from col " + from2 + " using ID: " + id2 );
 
+                            // System.out.println(find + from1 + id1 + from2 + id2);  //testing
+
                             // make jdbc connection
                             jdbc.connect();
 
                             // call 5 arg query function
-//                             rating country India director A. L. Vijay
-                            jdbc.query("rating","country","India","director","A. L. Vijay");
-//                            jdbc.query(find, from1, id2, from2, id2);
+                            // rating country India director A. L. Vijay   //test case
+                            // jdbc.query("rating","country","India","director","A. L. Vijay"); // test query
+                            jdbc.query(find, from1, id1, from2, id2);
 
                         } else {
                             //INCORRECT INPUT CATEGORIES
@@ -159,10 +160,25 @@ public class Parser {
     public static String[] concatenateString(String[] splited){
         if(splited.length > 3) {
             String searchHeader = "";
+            String third = "";
+            String forth = "";
+            String fifth = "";
+            Boolean rest = false; 
             for (int i = 2; i < splited.length; i++) {
+                if (rest)
+                    fifth += splited[i] + " ";
+                if (StringInArray(splited[i], CATEGORIES)) {
+                    third = searchHeader;
+                    forth = splited[i];
+                    rest = true;
+                }
                 searchHeader += splited[i] + " ";
+                
             }
-            splited = new String[]{splited[0], splited[1], searchHeader.trim()};
+            if (fifth != "")
+                splited = new String[]{splited[0], splited[1], third.trim(), forth, fifth.trim()};
+            else
+                splited = new String[]{splited[0], splited[1], searchHeader.trim()};
             return splited;
         }else {
             return splited;

@@ -51,7 +51,7 @@ public class OpSqliteDB
             String query = "select " + table0 + "."+ output_t + " from " + "directors, titles" + " where directors.netflix_titles = titles.show_id and "  + table1 + "." + type1 +
                     " = \"" + input1  + "\" and " + table2 + "." + type2 + " = \"" + input2 + "\";" ;
 
-            // System.out.println(query); testing
+            System.out.println(query); // testing
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
                 col1 = rs.getString(output_t);
