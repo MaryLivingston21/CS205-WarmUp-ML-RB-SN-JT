@@ -6,7 +6,7 @@ public class Parser {
 
     //Array of all categories in the dataset
     private static final String[] CATEGORIES = {"show_id", "title", "director", "date_added", "rating", "duration",
-            "description", "netflix_titles", "actor", "country", "release_year", "duration"};
+            "description", "netflix_id", "actor", "country", "release_year", "duration"};
 
     public static void main(String[] args) {
 

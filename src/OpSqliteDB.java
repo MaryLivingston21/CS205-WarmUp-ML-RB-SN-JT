@@ -51,7 +51,7 @@ public class OpSqliteDB
             table2 = getTableName(type2);
 
             Statement statement = c.createStatement();
-            String query = "select " + table0 + "."+ output_t + " from " + "directors, titles" + " where directors.netflix_titles = titles.show_id and "  + table1 + "." + type1 +
+            String query = "select " + table0 + "."+ output_t + " from " + "directors, titles" + " where directors.netflix_id = titles.show_id and "  + table1 + "." + type1 +
                     " = \"" + input1  + "\" and " + table2 + "." + type2 + " = \"" + input2 + "\";" ;
 
             // System.out.println(query); // testing
@@ -75,10 +75,12 @@ public class OpSqliteDB
             // 2 cases for titles only
             case "date_added": table = "titles"; break;
             case "description": table = "titles"; break;
+            case "show_id" : table = "titles"; break;
             // 3 cases for directors only
             case "actor": table = "directors"; break;
             case "country": table = "directors"; break;
             case "release_year": table = "directors"; break;
+            case "netflix_id" : table = "directors"; break;
             // Shared Cases
             //         case "rating": table = "directors"; break;
             //         case "duration": table = "directors"; break;
@@ -99,9 +101,20 @@ public class OpSqliteDB
            Statement statement = c.createStatement();
            
            String v2 = getTableName(output_t);
+           String v22 = getTableName(input);
+           boolean join = false;
+           if (v2 != v22) {
+               join = true;
+           }
 
-           //this formating for inputs is working 
-           String query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";" ;
+           //this formating for inputs is working
+           String query = "";
+           if (!join) {
+               query = "select " + output_t + " from " + v2 + " where " + input + " = \"" + detail + "\";";
+           }
+           else {
+               query = "select " + v2 + "." + output_t + " from " + v2 + "," + v22 + " where directors.netflix_id = titles.show_id and " + v22 + "."+ input + " = \"" + detail + "\";";
+           }
            // System.out.println(query); testing
            ResultSet rs = statement.executeQuery(query);
 
