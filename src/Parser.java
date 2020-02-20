@@ -31,7 +31,7 @@ public class Parser {
             if(splited.length > 3){
                 splited = concatenateString(splited);
             }
-            
+
             //HELP
             if(splited[0].trim().equals("help")){
                 System.out.println("Enter \"load data\" to load the data");
@@ -149,13 +149,13 @@ public class Parser {
 
     // the instance of the data is stored in an array of strings
     // if a value has multiple words, this method adjusts the array so that all words from the value are in the same index
-    public static String[] concatenateString(String[] splited){
-        if(splited.length > 3) {
+    public static String[] concatenateString(String[] splited) {
+        if (splited.length > 3) {
             String searchHeader = "";
             String third = "";
             String forth = "";
             String fifth = "";
-            Boolean rest = false; 
+            Boolean rest = false;
             for (int i = 2; i < splited.length; i++) {
                 if (rest) {
                     fifth += splited[i] + " ";
@@ -166,10 +166,11 @@ public class Parser {
                     rest = true;
                 }
                 searchHeader += splited[i] + " ";
-                
+
             }
             if (fifth != "") {
                 splited = new String[]{splited[0], splited[1], third.trim(), forth, fifth.trim()};
+                return splited;
             } else {
                 splited = new String[]{splited[0], splited[1], searchHeader.trim()};
                 return splited;
