@@ -16,12 +16,12 @@ public class Parser {
 
         //Parsing
         System.out.println("Welcome to our Movie program!");
-        System.out.println("Enter \"help\" for help, else enter first query.");
+        System.out.println("Enter \"help\" for assistance");
         Scanner scanner = new Scanner(System.in);
         String input = "";
 
         // Input Handling
-        while (!input.equals("exit")){
+        while (!input.equalsIgnoreCase("exit")){
 
             //GET INPUT
             input = scanner.nextLine();
@@ -31,45 +31,38 @@ public class Parser {
             if(splited.length > 3){
                 splited = concatenateString(splited);
             }
-
-            //HELP TODO: double check
+            
+            //HELP
             if(splited[0].trim().equals("help")){
-                System.out.println("Enter \"help\" for help, \"load data\" to load the data, and \"exit\" to leave the program.");
-                System.out.println("Enter what you want to find, the category you know, and its value");
+                System.out.println("Enter \"load data\" to load the data");
+                System.out.println("To make a query, enter what you want to find, the category you know, and its value");
                 System.out.println("Example: director title \"A Christmas Prince: The Royal Wedding\"");
                 System.out.println("Output : John Schultz");
+                System.out.println("Enter \"exit\" to leave the program.");
 
-            }
-            //LOAD DATA
-            else if (splited[0].trim().equals("load")) {
+            } //LOAD DATA
+            else if (splited[0].trim().equalsIgnoreCase("load")) {
                 if(loadData){
                     System.out.println("The data has already been loaded");
-                }else{
+                } else {
                     System.out.println("Loading data...");
                     loadData = true;
                     jdbc.createTables();
-                    //TODO: error checking if data doesnt load
                     System.out.println("The data is now loaded.");
                 }
-            }
-
-            //if input == exit
-            else if (splited[0].trim().equals("exit")) {
+            } //if input == exit
+            else if (splited[0].trim().equalsIgnoreCase("exit")) {
                 System.out.println("Program powering down...");
-            }
-            //query the input
+            } //query the input
             else {
                 // IF INCORRECT INPUT LENGTH
                 if (splited.length < 3 || splited.length == 4) {
                     System.out.println("Not enough arguments entered, please try again with more info");
-                }
-                else if (splited.length > 5) {
-                    System.out.println("Too many arguments entered, try wrapping your last info in \"movie name\"");
-                }
-                else if(!loadData){
+                } else if (splited.length > 5) {
+                    System.out.println("Too many arguments entered, maybe try wrapping your last info in \"movie name\"");
+                } else if(!loadData){
                     System.out.println("No data loaded yet. You must enter \"load data\" before searching.");
-                }
-                //CORRECT INPUT LENGTH
+                } //CORRECT INPUT LENGTH
                 else {
                     //CORRECT INPUT CATEGORIES
                     // With 3 args
@@ -126,7 +119,6 @@ public class Parser {
                             }
                         }
                     }
-                    //
                 }
             }
         }
@@ -165,8 +157,9 @@ public class Parser {
             String fifth = "";
             Boolean rest = false; 
             for (int i = 2; i < splited.length; i++) {
-                if (rest)
+                if (rest) {
                     fifth += splited[i] + " ";
+                }
                 if (StringInArray(splited[i], CATEGORIES)) {
                     third = searchHeader;
                     forth = splited[i];
@@ -175,15 +168,15 @@ public class Parser {
                 searchHeader += splited[i] + " ";
                 
             }
-            if (fifth != "")
+            if (fifth != "") {
                 splited = new String[]{splited[0], splited[1], third.trim(), forth, fifth.trim()};
-            else
+            } else {
                 splited = new String[]{splited[0], splited[1], searchHeader.trim()};
-            return splited;
-        }else {
+                return splited;
+            }
+        } else {
             return splited;
         }
     }
-
 }
 
