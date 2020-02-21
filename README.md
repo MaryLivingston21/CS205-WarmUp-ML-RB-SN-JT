@@ -11,7 +11,7 @@ We use Java and Python two programming languages.
 
 Assume you are using IntelliJIDEA, after download from master branch, you need to configure the project.
 1) click on edit configurations ->  "+" icon -> select "Application" -> name it as main
-2) under Main_class section -> click on "..." on the right of the line -> then choose UserInterface.
+2) under Main_class section -> click on "..." on the right of the line -> then choose Parser.
 
 ## Notice 2: Include sqlite-jdbc-3.30.1.jar file in libraries
 
